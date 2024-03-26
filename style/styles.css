@@ -20,27 +20,35 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     width: 450px;
     height: 600px;
 }
 
 #screen {
-    margin: 16px;
+    font-size: 64px;
     padding: 24px;
+    margin: 24px;
     display: flex;
     background-color: darkgrey;
     max-height: 64px;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 #button-grp {
-    padding: 48px;
+    margin: 24px;
+    padding: 24px;
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
+}
+
+button {
+    width: 64px;
+    height: 64px;
 }
 
 #footer {
