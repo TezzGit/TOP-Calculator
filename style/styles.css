@@ -64,8 +64,20 @@ button {
     border: 0;
 }
 
+.digit {
+    background-color: lightgrey;
+}
+
+.operand {
+    background-color: lightblue;
+}
+
+#clear {
+    background-color: pink;
+}
+
 button:hover {
-    background-color: grey;
+    background-color: grey !important;
 }
 
 #footer {
