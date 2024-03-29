@@ -111,6 +111,22 @@ function digitStore(value) {
     }
 }
 
+function opBackspace() {
+    if (!currOperand) {
+        param1 = displayScreen.innerHTML;
+        if (param1) {
+            param1 = param1.slice(0, -1);
+            updateScreen(param1);
+        }
+    } else {
+        param2 = displayScreen.innerHTML;
+        if (param2) {
+            param2 = param2.slice(0, -1);
+            updateScreen(param2);
+        }
+    }
+}
+
 function operatorStore(value) {
     // if param2 has a value, perform operation
     if (param2) opTotal();
@@ -131,6 +147,7 @@ btnNum9.addEventListener("click", () => digitStore('9'));
 btnDecimal.addEventListener("click", () => digitStore('.'));
 
 btnClear.addEventListener("click", () => clearAll());
+btnBackspace.addEventListener("click", () => opBackspace());
 
 btnMultiply.addEventListener("click", () => operatorStore('*'));
 btnDivide.addEventListener("click", () => operatorStore('/'));
