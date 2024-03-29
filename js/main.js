@@ -63,8 +63,8 @@ function opDivide(firstVal, secondVal) {
 }
 
 function opTotal() {
-    param1 = parseInt(param1);
-    param2 = parseInt(param2);
+    param1 = parseFloat(param1);
+    param2 = parseFloat(param2);
 
     switch (currOperand) {
         case '*':
