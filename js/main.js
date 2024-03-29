@@ -155,3 +155,56 @@ btnSubtract.addEventListener("click", () => operatorStore('-'));
 btnSum.addEventListener("click", () => operatorStore('+'));
 btnEqual.addEventListener("click", () => opTotal());
 
+document.addEventListener("keydown", (e) => {
+    switch (e.key) {
+        case "1":
+            digitStore('1');
+            break;
+        case "2":
+            digitStore('2');
+            break;
+        case "3":
+            digitStore('3');
+            break;
+        case "4":
+            digitStore('4');
+            break;
+        case "5":
+            digitStore('5');
+            break;
+        case "6":
+            digitStore('6');
+            break;
+        case "7":
+            digitStore('7');
+            break;
+        case "8":
+            digitStore('8');
+            break;
+        case "9":
+            digitStore('9');
+            break;
+        case "0":
+            digitStore('0');
+            break;
+        case "*":
+            operatorStore('*');
+            break;
+        case "/":
+            operatorStore('/');
+            break;
+        case "+":
+            operatorStore('+');
+            break;
+        case "-":
+            operatorStore('-');
+            break;
+        case "=":
+            opTotal();
+            break;
+        case ".":
+            digitStore('.');
+            break;
+    }
+})
+
