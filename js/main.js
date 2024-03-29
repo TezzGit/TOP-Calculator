@@ -46,8 +46,48 @@ function opMultiply(firstVal, secondVal) {
 }
 
 function opDivide(firstVal, secondVal) {
-    if(firstVal === 0 || secondVal === 0) return 0;
+    if (firstVal === 0 || secondVal === 0) return 0;
     return firstVal / secondVal;
 }
 
+function clearVals() {
+    param1 = param2 = currOperand = NaN;
+}
+
+function opTotal() {
+    if (param1 === NaN) param1 = displayScreen.innerHTML;
+    if (param2 === NaN) param2 = 0;
+
+    switch (currOperand) {
+        case '*':
+            displayScreen.innerHTML = opMultiply(param1, param2);
+            break;
+        case '/':
+            displayScreen.innerHTML = opDivide(param1, param2);
+            break;
+        case '+':
+            displayScreen.innerHTML = opAdd(param1, param2);
+            break;
+        case '-':
+            displayScreen.innerHTML = opSubtract(param1, param2);
+            break;
+    }
+    clearVals();
+}
+
 // STORING BTN INPUT
+function digitStore(value) {
+    // if operator is NAN, assign or append the value to param1
+    // else, assign or append the value to param2
+    if (currOperand === NaN) {
+        if (param1 === NaN) param1 = value; else param1 += value;
+    } else {
+        if (param2 === NaN) param2 = value; else param2 += value;
+    }
+}
+
+function operatorStore(value) {
+    // if param2 has a value, perform operation
+    if (param2) opTotal();
+    currOperand = value;
+}
