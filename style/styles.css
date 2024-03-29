@@ -33,6 +33,7 @@ body {
     justify-content: flex-end;
     align-items: center;
     margin: 32px;
+    margin-bottom: 4px;
     border: 2px solid black;
     border-radius: 5px;
 }
@@ -49,7 +50,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
-    margin: 32px;
+    margin: 16px 32px;
     padding: 8px 0px;
     background-color: darkgrey;
     border-radius: 5px;
