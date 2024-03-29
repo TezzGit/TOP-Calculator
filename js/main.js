@@ -137,3 +137,4 @@ btnDivide.addEventListener("click", () => operatorStore('/'));
 btnSubtract.addEventListener("click", () => operatorStore('-'));
 btnSum.addEventListener("click", () => operatorStore('+'));
 btnEqual.addEventListener("click", () => opTotal());
+

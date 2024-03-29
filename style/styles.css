@@ -23,7 +23,7 @@ body {
     width: 300px;
     height: 500px;
     border: 2px solid black;
-    border-radius:  5px;
+    border-radius: 5px;
 }
 
 #screen {
@@ -40,7 +40,7 @@ body {
 
 #output {
     margin-right: 4px;
-    font-size: 48px; 
+    font-size: 48px;
     font-family: monospace;
 }
 
@@ -77,11 +77,11 @@ button {
     background-color: pink;
 }
 
-button:hover {
+button:hover:enabled {
     background-color: grey !important;
 }
 
-button:active {
+button:active:enabled {
     background-color: rgb(66, 66, 66) !important;
 }
 
