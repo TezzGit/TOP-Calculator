@@ -54,6 +54,11 @@ function clearVals() {
     param1 = param2 = currOperand = NaN;
 }
 
+function clearAll() {
+    clearVals();
+    displayScreen.innerHTML = 0;
+}
+
 function opTotal() {
     if (param1 === NaN) param1 = displayScreen.innerHTML;
     if (param2 === NaN) param2 = 0;

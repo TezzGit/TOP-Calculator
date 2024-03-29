@@ -81,6 +81,10 @@ button:hover {
     background-color: grey !important;
 }
 
+button:active {
+    background-color: rgb(66, 66, 66) !important;
+}
+
 #footer {
     display: flex;
     justify-content: center;
