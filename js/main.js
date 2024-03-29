@@ -61,8 +61,11 @@ function opDivide(firstVal, secondVal) {
 }
 
 function opTotal() {
-    if (param1 === NaN) param1 = displayScreen.innerHTML;
+    if (param1 === NaN) param1 = parseInt(displayScreen.innerHTML);
     if (param2 === NaN) param2 = 0;
+
+    param1 = parseInt(param1);
+    param2 = parseInt(param2);
 
     switch (currOperand) {
         case '*':
@@ -128,3 +131,9 @@ btnNum9.addEventListener("click", () => digitStore('9'));
 btnDecimal.addEventListener("click", () => digitStore('.'));
 
 btnClear.addEventListener("click", () => clearAll());
+
+btnMultiply.addEventListener("click", () => operatorStore('*'));
+btnDivide.addEventListener("click", () => operatorStore('/'));
+btnSubtract.addEventListener("click", () => operatorStore('-'));
+btnSum.addEventListener("click", () => operatorStore('+'));
+btnEqual.addEventListener("click", () => opTotal());
