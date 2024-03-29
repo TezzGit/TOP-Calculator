@@ -19,36 +19,53 @@ body {
     background-color: grey;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 450px;
-    height: 600px;
+    justify-content: space-evenly;
+    width: 300px;
+    height: 500px;
+    border: 2px solid black;
+    border-radius:  5px;
 }
 
 #screen {
-    font-size: 64px;
-    padding: 24px;
-    margin: 24px;
     display: flex;
     background-color: darkgrey;
     max-height: 64px;
     justify-content: flex-end;
     align-items: center;
+    margin: 32px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#output {
+    margin-right: 4px;
+    font-size: 48px; 
+    font-family: monospace;
 }
 
 #button-grp {
-    margin: 24px;
-    padding: 24px;
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
+    margin: 32px;
+    padding: 8px 0px;
+    background-color: darkgrey;
+    border-radius: 5px;
 }
 
 button {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    box-shadow: none;
+    font-family: monospace;
+    border: 0;
+}
+
+button:hover {
+    background-color: grey;
 }
 
 #footer {
