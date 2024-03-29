@@ -24,4 +24,30 @@ const btnPlusMinus = document.getElementById('np-plus-minus')
 const btnBackspace = document.getElementById('bksp');
 const btnClear = document.getElementById('clear');
 
+// Screen Var
+const displayScreen = document.getElementById('output');
 
+// Calc Values
+const param1 = NaN;
+const param2 = NaN;
+const currOperand = NaN;
+
+// BASE OPERATIONS
+function opAdd(firstVal, secondVal) {
+    return firstVal + secondVal;
+}
+
+function opSubtract(firstVal, secondVal) {
+    return firstVal - secondVal;
+}
+
+function opMultiply(firstVal, secondVal) {
+    return firstVal * secondVal;
+}
+
+function opDivide(firstVal, secondVal) {
+    if(firstVal === 0 || secondVal === 0) return 0;
+    return firstVal / secondVal;
+}
+
+// STORING BTN INPUT
