@@ -40,7 +40,8 @@ body {
 
 #output {
     margin-right: 4px;
-    font-size: 48px;
+    padding: 18px 0px;
+    font-size: 30px;
     font-family: monospace;
 }
 

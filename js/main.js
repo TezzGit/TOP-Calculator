@@ -27,11 +27,14 @@ const btnClear = document.getElementById('clear');
 // Screen Var
 const displayScreen = document.getElementById('output');
 
+const maxDisplayLength = 12;
+
 // Calc Values
 let param1 = NaN;
 let param2 = NaN;
 let currOperand = NaN;
 let decimalUsed = false;
+let lastResult = 0;
 
 // RESET FUNCTIONS
 function clearVals() {
@@ -44,6 +47,7 @@ function clearVals() {
 function clearAll() {
     clearVals();
     displayScreen.innerHTML = 0;
+    lastResult = 0;
 }
 
 // BASE OPERATIONS
@@ -60,34 +64,43 @@ function opMultiply(firstVal, secondVal) {
 }
 
 function opDivide(firstVal, secondVal) {
-    if (firstVal === 0 || secondVal === 0) return 0;
+    if (firstVal === 0 || secondVal === 0) return "ERR0R";
     return firstVal / secondVal;
 }
 
 function opTotal() {
+    if (!param1) param1 = lastResult;
+    param2 = displayScreen.innerHTML;
+
     param1 = parseFloat(param1);
     param2 = parseFloat(param2);
 
     switch (currOperand) {
         case '*':
-            displayScreen.innerHTML = opMultiply(param1, param2);
+            lastResult = opMultiply(param1, param2);
             break;
         case '/':
-            displayScreen.innerHTML = opDivide(param1, param2);
+            lastResult = opDivide(param1, param2);
             break;
         case '+':
-            displayScreen.innerHTML = opAdd(param1, param2);
+            lastResult = opAdd(param1, param2);
             break;
         case '-':
-            displayScreen.innerHTML = opSubtract(param1, param2);
+            lastResult = opSubtract(param1, param2);
             break;
     }
+    updateScreen(lastResult);
     clearVals();
-    param1 = displayScreen.innerHTML;
 }
 
 function updateScreen(paramToDisplay) {
-    displayScreen.innerHTML = paramToDisplay;
+    const display = paramToDisplay.toString()
+    if (display.length > maxDisplayLength) {
+        displayScreen.innerHTML = "ERR - TOO LARGE"
+    } else {
+        displayScreen.innerHTML = display;
+    }
+
 }
 
 // STORING BTN INPUT
@@ -137,6 +150,12 @@ function opBackspace() {
 
 function operatorStore(value) {
     // if param2 has a value, perform operation
+    if (!param1) {
+        if (parseFloat(lastResult)) {
+            param1 = lastResult;
+        } else param1 = 0;
+    }
+
     if (param2) opTotal();
     currOperand = value;
     decimalUsed = false;
