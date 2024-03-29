@@ -31,12 +31,14 @@ const displayScreen = document.getElementById('output');
 let param1 = NaN;
 let param2 = NaN;
 let currOperand = NaN;
+let decimalUsed = false;
 
 // RESET FUNCTIONS
 function clearVals() {
     param1 = NaN;
     param2 = NaN;
     currOperand = NaN;
+    decimalUsed = false;
 }
 
 function clearAll() {
@@ -92,6 +94,11 @@ function updateScreen(paramToDisplay) {
 function digitStore(value) {
     // if operator is NAN, assign or append the value to param1
     // else, assign or append the value to param2
+    if (value === '.') {
+        if (decimalUsed === true) return;
+        decimalUsed = true;
+    }
+
     if (!currOperand) {
         if (!param1) {
             param1 = value;
@@ -125,12 +132,14 @@ function opBackspace() {
             updateScreen(param2);
         }
     }
+    if (!displayScreen.innerHTML.includes(".")) decimalUsed = false;
 }
 
 function operatorStore(value) {
     // if param2 has a value, perform operation
     if (param2) opTotal();
     currOperand = value;
+    decimalUsed = false;
 }
 
 // BIND FUNCTS TO BTNS
