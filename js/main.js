@@ -34,7 +34,9 @@ let currOperand = NaN;
 
 // RESET FUNCTIONS
 function clearVals() {
-    param1 = param2 = currOperand = NaN;
+    param1 = NaN;
+    param2 = NaN;
+    currOperand = NaN;
 }
 
 function clearAll() {
@@ -61,9 +63,6 @@ function opDivide(firstVal, secondVal) {
 }
 
 function opTotal() {
-    if (param1 === NaN) param1 = parseInt(displayScreen.innerHTML);
-    if (param2 === NaN) param2 = 0;
-
     param1 = parseInt(param1);
     param2 = parseInt(param2);
 
@@ -82,6 +81,7 @@ function opTotal() {
             break;
     }
     clearVals();
+    param1 = displayScreen.innerHTML;
 }
 
 function updateScreen(paramToDisplay) {
