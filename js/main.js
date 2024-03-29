@@ -28,9 +28,19 @@ const btnClear = document.getElementById('clear');
 const displayScreen = document.getElementById('output');
 
 // Calc Values
-const param1 = NaN;
-const param2 = NaN;
-const currOperand = NaN;
+let param1 = NaN;
+let param2 = NaN;
+let currOperand = NaN;
+
+// RESET FUNCTIONS
+function clearVals() {
+    param1 = param2 = currOperand = NaN;
+}
+
+function clearAll() {
+    clearVals();
+    displayScreen.innerHTML = 0;
+}
 
 // BASE OPERATIONS
 function opAdd(firstVal, secondVal) {
@@ -48,15 +58,6 @@ function opMultiply(firstVal, secondVal) {
 function opDivide(firstVal, secondVal) {
     if (firstVal === 0 || secondVal === 0) return 0;
     return firstVal / secondVal;
-}
-
-function clearVals() {
-    param1 = param2 = currOperand = NaN;
-}
-
-function clearAll() {
-    clearVals();
-    displayScreen.innerHTML = 0;
 }
 
 function opTotal() {
@@ -80,14 +81,30 @@ function opTotal() {
     clearVals();
 }
 
+function updateScreen(paramToDisplay) {
+    displayScreen.innerHTML = paramToDisplay;
+}
+
 // STORING BTN INPUT
 function digitStore(value) {
     // if operator is NAN, assign or append the value to param1
     // else, assign or append the value to param2
-    if (currOperand === NaN) {
-        if (param1 === NaN) param1 = value; else param1 += value;
+    if (!currOperand) {
+        if (!param1) {
+            param1 = value;
+        }
+        else {
+            param1 += value;
+        }
+        updateScreen(param1);
     } else {
-        if (param2 === NaN) param2 = value; else param2 += value;
+        if (!param2) {
+            param2 = value;
+        }
+        else {
+            param2 += value;
+        }
+        updateScreen(param2);
     }
 }
 
@@ -96,3 +113,18 @@ function operatorStore(value) {
     if (param2) opTotal();
     currOperand = value;
 }
+
+// BIND FUNCTS TO BTNS
+btnNum0.addEventListener("click", () => digitStore('0'));
+btnNum1.addEventListener("click", () => digitStore('1'));
+btnNum2.addEventListener("click", () => digitStore('2'));
+btnNum3.addEventListener("click", () => digitStore('3'));
+btnNum4.addEventListener("click", () => digitStore('4'));
+btnNum5.addEventListener("click", () => digitStore('5'));
+btnNum6.addEventListener("click", () => digitStore('6'));
+btnNum7.addEventListener("click", () => digitStore('7'));
+btnNum8.addEventListener("click", () => digitStore('8'));
+btnNum9.addEventListener("click", () => digitStore('9'));
+btnDecimal.addEventListener("click", () => digitStore('.'));
+
+btnClear.addEventListener("click", () => clearAll());
